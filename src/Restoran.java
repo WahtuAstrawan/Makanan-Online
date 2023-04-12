@@ -1,9 +1,17 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Restoran {
-    private String nama = "-";
-    private String alamat = "-";
+    private String nama;
+    private String alamat;
+    private ArrayList<Menu> menuMakanan;
+    private ArrayList<Menu> menuMinuman;
+
+    public Restoran(String nama, String alamat) {
+        this.nama = nama;
+        this.alamat = alamat;
+        menuMakanan = new ArrayList<>();
+        menuMinuman = new ArrayList<>();
+    }
 
     public void setNama(String nama) {
         this.nama = nama;
@@ -13,17 +21,43 @@ public class Restoran {
         this.alamat = alamat;
     }
 
-    public String getNama(){
+    public String getNama() {
         return nama;
     }
-    public String getAlamat(){
+
+    public String getAlamat() {
         return alamat;
     }
-    HashMap<String, ArrayList<String>> Makanan = new HashMap<>();
-    HashMap<String, ArrayList<String>> Minuman = new HashMap<>();
 
-    public static void lihatRestoran(Restoran lihat){
-        System.out.printf("Nama Restoran   : %s\n", lihat.getNama());
-        System.out.printf("Alamat Restoran : %s", lihat.getAlamat());
+    public ArrayList<Menu> getMenuMakanan() {
+        return menuMakanan;
+    }
+
+    public ArrayList<Menu> getMenuMinuman() {
+        return menuMinuman;
+    }
+
+    public void tambahMenuMakanan(Menu menu) {
+        menuMakanan.add(menu);
+    }
+
+    public void tambahMenuMinuman(Menu menu) {
+        menuMinuman.add(menu);
+    }
+
+    public void printMakanan() {
+        System.out.println("\nMenu Makanan : ");
+        for (int i = 0; i < menuMakanan.size(); i++) {
+            System.out.printf("%d. Nama  : %s \n   Harga : Rp.%d\n", i + 1, menuMakanan.get(i).getNama(),
+                    menuMakanan.get(i).getHarga());
+        }
+    }
+
+    public void printMinuman() {
+        System.out.println("\nMenu Minuman : ");
+        for (int i = 0; i < menuMinuman.size(); i++) {
+            System.out.printf("%d. Nama  : %s \n   Harga : Rp.%d\n", i + 1, menuMinuman.get(i).getNama(),
+                    menuMinuman.get(i).getHarga());
+        }
     }
 }

@@ -1,7 +1,11 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Customer {
-        public void menuCustomer(){
-        System.out.println("Halo Costumer");
+    final public static String idCostumer = "pelanggan", pwCostumer = "mamat123";
+
+    public static int menuCustomer(ArrayList<Restoran> daftarRestoran) {
+        System.out.println("Halo Customer");
+        return 1;
     }
 }

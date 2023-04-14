@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.regex.Pattern;
+import java.security.SecureRandom;
 
 public class Fitur {
     public static void clearScreen() {
@@ -28,7 +30,6 @@ public class Fitur {
             } else {
                 System.out.println("Maaf input Anda salah, Tolong masukkan angka ! ");
                 getChar("Tekan enter untuk mengulang ! ");
-                clearScreen();
             }
         }
     }
@@ -48,4 +49,34 @@ public class Fitur {
         }
     }
 
+    public static String idGenerator(int panjang) {
+        final String NOMOR = "0123456789";
+        SecureRandom random = new SecureRandom();
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < panjang; i++) {
+            int indexAcak = random.nextInt(NOMOR.length());
+            char nomorAcak = NOMOR.charAt(indexAcak);
+            sb.append(nomorAcak);
+        }
+        return sb.toString();
+    }
+
+    public static double validasiDouble() {
+        Scanner input = new Scanner(System.in);
+        while (true) {
+            System.out.print("Jawab (Km) : ");
+            String masukkan = input.nextLine();
+            if (Pattern.matches("\\d+(\\.\\d+)?", masukkan)) {
+                double nilai = Double.parseDouble(masukkan);
+                if (nilai > 0) {
+                    return nilai;
+                } else {
+                    System.out.print("Jarak antara lokasi antar tidak boleh kurang atau sama dengan nol !\n");
+                }
+            } else {
+                System.out.println("Maaf input anda salah, Mohon ikuti petunjuk !");
+            }
+        }
+    }
 }

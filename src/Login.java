@@ -7,15 +7,23 @@ public class Login {
         Console console = System.console();
         Scanner input = new Scanner(System.in);
         int pilih = Fitur.validasiInteger(
-                "Selamat Datang di Program Restoran Online ! \n1. Login \n2. Keluar \nPilihan anda : ",
+                "\n======================================================\n"
+                        + "||     Selamat Datang di Program Restoran Online !  ||\n"
+                        + "======================================================\n"
+                        + "|| 1. Login                                         ||\n"
+                        + "|| 2. Keluar                                        ||\n"
+                        + "======================================================\n"
+                        + "  Pilihan anda : ",
                 "Maaf input anda salah, Pilih opsi yang tersedia !", 1, 2);
         if (pilih == 1) {
             while (true) {
                 Fitur.clearScreen();
-                System.out.println("\t Login Page");
-                System.out.print("Username : ");
+                System.out.print("====================================\n");
+                System.out.print("||          Login Page            ||\n");
+                System.out.print("====================================\n");
+                System.out.print("  Username : ");
                 String username = input.nextLine();
-                char[] pass = console.readPassword("Password : ");
+                char[] pass = console.readPassword("  Password : ");
                 String password = new String(pass);
                 if (username.equals(Admin.idAdmin) && password.equals(Admin.pwAdmin)) {
                     Fitur.clearScreen();

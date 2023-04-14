@@ -3,12 +3,14 @@ import java.util.ArrayList;
 public class Restoran {
     private String nama;
     private String alamat;
+    private String idResto;
     private ArrayList<Menu> menuMakanan;
     private ArrayList<Menu> menuMinuman;
 
     public Restoran(String nama, String alamat) {
         this.nama = nama;
         this.alamat = alamat;
+        this.idResto = Fitur.idGenerator(4);
         menuMakanan = new ArrayList<>();
         menuMinuman = new ArrayList<>();
     }
@@ -27,6 +29,10 @@ public class Restoran {
 
     public String getAlamat() {
         return alamat;
+    }
+
+    public String getIdResto() {
+        return idResto;
     }
 
     public ArrayList<Menu> getMenuMakanan() {

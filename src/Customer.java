@@ -18,6 +18,9 @@ import java.util.ArrayList;
  *        memilih fitur apa yang akan digunakan. mulai dari fitur buat pesanan yang 
  *        memungkinkan user untuk membuat pesanan dari daftar restoran yang tersedia. Selanjutnya juga ada fitur
  *        lihat pesanan yang memungkinkan user untuk melihat daftar pesanan yang tersedia.
+ * 
+ *      - Mehtod menu customer memiliki return type integer (1) untuk mengindikasikan bahwa user ingin kembali ke login
+ *        yang diatus pada class main
  */
 
 public class Customer {

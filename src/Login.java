@@ -10,6 +10,9 @@ import java.io.Console;
  *      - Kemudian pada class ini terdapat banyak variabel-variabel yang digunakan untuk melakukan proses login.
  *        pada method login ini, user akan dimintai input username dan password. yang nantinya akan digunakan untuk 
  *        menentukan user itu termasuk ke tipe apa (admin/customer).
+ * 
+ *      - Method login ini memiliki tipe return integer yakni (1/2) untuk mengindikasikan tipe
+ *        user yang masuk itu apa (admin/customer). ini diatur pada class main.
  *        
  *        
  */

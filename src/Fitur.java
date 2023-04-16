@@ -13,14 +13,17 @@ import java.security.SecureRandom;
  * 
  *      - Method validasi integer berfungsi untuk menerima input dari user dan menvalidasinya agar
  *        hanya bertipe integer dan berada pada range yang diberikan pada parameter method. 
+ *        kemudian hasilnya akan direturn dengan tipe integer.
  * 
  *      - Method validasi char berfungsi untuk menerima input dari user dan menvalidasinya agar inputan dari user hanya bernilai y/n. 
+ *        dan hasilnya akan di return dalam bentuk char.
  * 
  *      - Method id generator merupakan method yang berfungsi untuk mengenerate id dengan panjang tertentu (didapat dari parameter)
- *        yang nantinya akan digunakan pada setiap data restoran dan menu.
+ *        yang nantinya akan digunakan pada setiap data restoran dan menu. dan hasilnya akan direturn dalam bentuk string
  * 
  *      - Method validasi double berfungsi untuk menerima input dari user dan menvalidasikannya agar bertipe double
- *        dan masukkannya lebih dari 0 dan nantinya akan digunakan user untuk memasukkan jarak antar pada saat membuat pesanan     
+ *        dan masukkannya lebih dari 0 dan nantinya akan digunakan user untuk memasukkan jarak antar pada saat membuat pesanan.
+ *        hasilnya akan direturn dalam bentuk double.
  *        
  */
 

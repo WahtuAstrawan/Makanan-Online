@@ -20,7 +20,9 @@ import java.util.Scanner;
  *        menambahkan data restoran pada program, data ini akan disimpan pada arraylist daftar restoran
  *        yang nantinya akan digunakan juga pada menu customer. selanjutnya ada fitur hapus restoran
  *        yang berfungsi untuk menghapus data restoran yang ada pada program.
- *      
+ * 
+ *      - Mehtod menu admin memiliki return type integer (1) untuk mengindikasikan bahwa user ingin kembali ke login
+ *        yang diatus pada class main
  *     
  */
 

@@ -1,8 +1,31 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/*
+ * Class Admin:
+ *      - Class admin ini berfungsi untuk menyediakan menu atau fitur yang tersedia untuk 
+ *        user yang bertipe admin. pada class ini ada 1 method yakni method menuAdmin
+ *        pada method ini ada menu admin yang terdiri dari fitur lihat, tambah, dan hapus restoran.
+ *        method ini memiliki 1 parameter yakni arraylist yang bertipe class Restoran, nantinya
+ *        parameter ini akan digunakan untuk fitur fitur yang tersedia pada menu admin ini.
+ *        
+ *      - Artribut/variabel yang tersedia pada class ini lumayan banyak karena untuk keperluan
+ *        pemilihan menu admin oleh user (untuk semua fitur admin pada method menu admin). 
+ *        tetapi yang bersifat public hanya 2 yakni id admin dan pw admin, kedua variabel ini
+ *        nantinya akan digunakan pada class login untuk menvertifikasi tipe login dari user.
+ * 
+ *      - Kemudian pada menu admin ini akan terlihat tampilan menu, user akan memilih fitur apa
+ *        yang akan digunakan. mulai dari fitur lihat restoran yang berfungsi untuk melihat data
+ *        restoran yang tersedia pada program. kemudian fitur tambah restoran yang berfungsi untuk
+ *        menambahkan data restoran pada program, data ini akan disimpan pada arraylist daftar restoran
+ *        yang nantinya akan digunakan juga pada menu customer. selanjutnya ada fitur hapus restoran
+ *        yang berfungsi untuk menghapus data restoran yang ada pada program.
+ *      
+ *     
+ */
+
 public class Admin {
-        final public static String idAdmin = "admin", pwAdmin = "wahtuGanteng";
+        final public static String idAdmin = "admin", pwAdmin = "wahtu123";
 
         public static int menuAdmin(ArrayList<Restoran> daftarRestoran) {
                 Scanner input = new Scanner(System.in);
@@ -44,12 +67,16 @@ public class Admin {
                                                         daftarRestoran.size());
                                         Restoran restoran = daftarRestoran.get(pilihResto - 1);
                                         Fitur.clearScreen();
+                                        System.out.println("===============================================");
+                                        System.out.println("||               Detail Restoran             ||");
+                                        System.out.println("===============================================");
                                         System.out.printf("Nama Restoran   : %s\n", restoran.getNama());
                                         System.out.printf("Alamat Restoran : %s\n", restoran.getAlamat());
                                         System.out.println("===============================================");
                                         restoran.printMakanan();
                                         restoran.printMinuman();
-                                        Fitur.getChar("\nTekan enter untuk kembali ke menu admin ! ");
+                                        System.out.println("\n===============================================");
+                                        Fitur.getChar("Tekan enter untuk kembali ke menu admin ! ");
                                 }
                         } else if (pilih == 2) {
                                 while (true) {
@@ -76,9 +103,9 @@ public class Admin {
                                                 System.out.print(" Alamat Restoran : ");
                                                 String alamatRestoran = input.nextLine();
                                                 Restoran restoranBaru = new Restoran(namaRestoran, alamatRestoran);
-                                                System.out.println("\n*** Tambahkan menu restoran ***\n");
+                                                System.out.println("\n*** Tambahkan menu restoran ***");
                                                 int jumlahData = Fitur.validasiInteger(
-                                                                "Berapa jumlah data makanan dan minuman yang \nakan ditambahkan pada restoran diatas ?\nJawab : ",
+                                                                "\nBerapa jumlah data makanan dan minuman yang \nakan ditambahkan pada restoran diatas ?\nJawab : ",
                                                                 "Input data tidak boleh kurang atau sama dengan nol !",
                                                                 1, Integer.MAX_VALUE);
                                                 for (int i = 0; i < jumlahData; i++) {
@@ -115,20 +142,26 @@ public class Admin {
                                                 for (int i = 0; i < daftarRestoran.size(); i++) {
                                                         Restoran restoran = daftarRestoran.get(i);
                                                         System.out.printf(
-                                                                        "    %d. Nama Restoran   : %s \n     Alamat Restoran : %s \n",
+                                                                        "    %d. Nama Restoran   : %s \n       Alamat Restoran : %s \n",
                                                                         i + 1,
                                                                         restoran.getNama(),
                                                                         restoran.getAlamat());
                                                 }
                                                 int pilihResto = Fitur.validasiInteger(
-                                                                "Pilih Restoran yang akan ditambahkan menunya\nPilihan anda : ",
+                                                                "\nPilih Restoran yang akan ditambahkan menunya\nPilihan anda : ",
                                                                 "Maaf input anda salah, Pilih restoran yang tersedia !",
                                                                 1,
                                                                 daftarRestoran.size());
-                                                Fitur.clearScreen();
                                                 Restoran restoran = daftarRestoran.get(pilihResto - 1);
                                                 int pilihData = Fitur.validasiInteger(
-                                                                "Opsi tambah data menu : \n1. Makanan \n2. Minuman\n3. Makanan dan Minuman\nPilihan anda : ",
+                                                                "\n===============================================\n"
+                                                                                + "||            Opsi Tambah Data Menu          ||\n"
+                                                                                + "===============================================\n"
+                                                                                + "|| 1. Makanan                                ||\n"
+                                                                                + "|| 2. Minuman                                ||\n"
+                                                                                + "|| 3. Makanan dan Minuman                    ||\n"
+                                                                                + "===============================================\n"
+                                                                                + "  Pilihan anda : ",
                                                                 "Maaf input anda salah, Pilih opsi yang tersedia !",
                                                                 1, 3);
                                                 if (pilihData == 1) {
@@ -176,7 +209,7 @@ public class Admin {
                                                 } else if (pilihData == 3) {
                                                         Fitur.clearScreen();
                                                         int banyak = Fitur.validasiInteger(
-                                                                        "Berapa banyak data makanan dan minuman yang akan ditambahkan ?\nJawab : ",
+                                                                        "Berapa banyak data makanan dan minuman \nyang akan ditambahkan ?\nJawab : ",
                                                                         "Input data tidak boleh kurang atau sama dengan nol !",
                                                                         1,
                                                                         Integer.MAX_VALUE);
@@ -200,15 +233,15 @@ public class Admin {
                                                                 Menu menuMinumBaru = new Menu(minuman, hargaMinum);
                                                                 restoran.tambahMenuMinuman(menuMinumBaru);
                                                         }
-                                                        System.out.println("*** Data berhasil ditambahkan ! *** ");
+                                                        System.out.println("\n*** Data berhasil ditambahkan ! *** ");
                                                         Fitur.getChar("Tekan enter untuk kembali ke menu admin ! ");
                                                         break;
                                                 }
                                         } else if (pilihOpsi == 2 && daftarRestoran.isEmpty()) {
                                                 System.out.println(
-                                                                "Maaf belum ada data restoran yang tersimpan\nMohon pilih opsi tambah restoran baru !");
+                                                                "\nMaaf belum ada data restoran yang tersimpan\nMohon pilih opsi tambah restoran baru !");
                                                 Fitur.getChar(
-                                                                "Maaf belum ada data restoran yang tersimpan\nMohon pilih opsi tambah restoran baru ! \nTekan enter untuk kembali ke pilihan opsi ! ");
+                                                                "\nTekan enter untuk kembali ke pilihan opsi ! ");
                                         } else if (pilihOpsi == 3) {
                                                 break;
                                         }

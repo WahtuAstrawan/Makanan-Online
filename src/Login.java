@@ -1,6 +1,19 @@
 import java.util.Scanner;
 import java.io.Console;
 
+/*
+ * Class Login:
+ *      - Class ini merupakan tempat untuk user melakukan login. dalam class ini terdapat 1 method yakni bernama login
+ *        dalam method login terdapat opsi untuk login dan keluar (exit program). method ini merupakan method pertama yang
+ *        dipanggil dalam program restoran ini. 
+ * 
+ *      - Kemudian pada class ini terdapat banyak variabel-variabel yang digunakan untuk melakukan proses login.
+ *        pada method login ini, user akan dimintai input username dan password. yang nantinya akan digunakan untuk 
+ *        menentukan user itu termasuk ke tipe apa (admin/customer).
+ *        
+ *        
+ */
+
 public class Login {
     public static int login() {
         Fitur.clearScreen();

@@ -1,6 +1,25 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
+/*
+ * Class Costumer:
+ *      - Mehtod menuCustomer adalah method yang berfungsi untuk menjalankan fitur yang
+ *        dapat diakses oleh user bertipe customer. Method ini dipanggil bila pada saat 
+ *        vertifikasi dilogin user masuk sebagai customer. Method ini memiliki 2 parameter
+ *        yakni arraylist Restoran yang bernama daftarRestoran dan arraylist Pesanan yang bernama daftarPesanan
+ *        kedua parameter ini berguna untuk keperluan data dari fitur customer.
+ * 
+ *      - Kemudian variabel/atribut yang ada pada customer ini ada banyak (karena untuk keperluan fitur buat dan lihat pesanan), 
+ *        tetapi yang ada secara public hanya 3 yakni idCustomer, pwCustomer, dan biayaOngkirPerKm
+ *        id dan pw customer digunakan untuk vertifikasi login pada class login dan biayaOngkirPerKm 
+ *        itu digunakan pada saat menghitung total harga pada class pesanan.
+ * 
+ *      - Kemudian dilanjutkan dengan tampilan menu fitur yang tersedia pada menu customer, user akan 
+ *        memilih fitur apa yang akan digunakan. mulai dari fitur buat pesanan yang 
+ *        memungkinkan user untuk membuat pesanan dari daftar restoran yang tersedia. Selanjutnya juga ada fitur
+ *        lihat pesanan yang memungkinkan user untuk melihat daftar pesanan yang tersedia.
+ */
+
 public class Customer {
     final public static String idCostumer = "pelanggan", pwCostumer = "mamat123";
     final public static int biayaOngkirPerKm = 3000;
@@ -18,7 +37,6 @@ public class Customer {
                     + "===================================\n"
                     + "   Pilihan anda : ", "Maaf input anda salah, Pilih menu yang tersedia !", 1, 3);
             if (pilih == 1) {
-                Fitur.clearScreen();
                 if (daftarRestoran.isEmpty()) {
                     Fitur.clearScreen();
                     System.out.println("Belum ada daftar Restoran yang tersedia !\n");
@@ -40,7 +58,7 @@ public class Customer {
                     Pesanan pesanan = new Pesanan(restoran.getIdResto(), restoran.getNama(), restoran.getAlamat());
                     while (true) {
                         Fitur.clearScreen();
-                        System.out.printf("Nama Restoran : %s \nAlamat Restoran : %s\n\n", restoran.getNama(),
+                        System.out.printf("Nama Restoran   : %s \nAlamat Restoran : %s\n", restoran.getNama(),
                                 restoran.getAlamat());
                         int pilihMenu = Fitur.validasiInteger(
                                 "===================================\n"
@@ -54,7 +72,8 @@ public class Customer {
                                 2);
                         if (pilihMenu == 1) {
                             restoran.printMakanan();
-                            int pilihMakanPesan = Fitur.validasiInteger("\nPilih makanan yang akan anda pesan : ",
+                            int pilihMakanPesan = Fitur.validasiInteger(
+                                    "\nPilih makanan yang akan anda pesan ! \nPilihan anda : ",
                                     "Maaf input anda salah, Pilih menu makanan yang tersedia !", 1,
                                     restoran.getMenuMakanan().size());
                             int jumlahPesanMakan = Fitur.validasiInteger(
@@ -71,21 +90,30 @@ public class Customer {
                                 continue;
                             } else {
                                 System.out.printf(
-                                        "Masukkan jarak antara lokasi anda dengan alamat dari restoran %s yakni dari : %s\n",
+                                        "\nMasukkan jarak antara lokasi anda dengan \nalamat dari restoran %s yakni dari : %s\n",
                                         restoran.getNama(), restoran.getAlamat());
                                 double jarakAntar = Fitur.validasiDouble();
                                 pesanan.setJarakAntar(jarakAntar);
-                                System.out.print("Masukkan nama anda : ");
+                                System.out.print("\nMasukkan nama anda : ");
                                 String namaCustomer = input.nextLine();
                                 pesanan.setNamaCustomer(namaCustomer);
-                                daftarPesanan.add(pesanan);
-                                System.out.println("\n*** Pesanan berhasil dibuat ! ***");
-                                Fitur.getChar("Tekan enter untuk kembali ke menu customer ! ");
-                                break;
+                                System.out.print("\nApakah anda yakin untuk membuat pesanan diatas ? ");
+                                char yakin = Fitur.validasiChar();
+                                if (yakin == 'y') {
+                                    daftarPesanan.add(pesanan);
+                                    System.out.println("\n\n*** Pesanan berhasil dibuat ! ***");
+                                    Fitur.getChar("\nTekan enter untuk kembali ke menu customer ! ");
+                                    break;
+                                } else {
+                                    System.out.println("\n\n*** Pesanan dibatalkan ! ***");
+                                    Fitur.getChar("\nTekan enter untuk kembali ke menu customer ! ");
+                                    break;
+                                }
                             }
                         } else if (pilihMenu == 2) {
                             restoran.printMinuman();
-                            int pilihMinumPesan = Fitur.validasiInteger("\nPilih minuman yang akan anda pesan : ",
+                            int pilihMinumPesan = Fitur.validasiInteger(
+                                    "\nPilih minuman yang akan anda pesan !\nPilihan anda : ",
                                     "Maaf input anda salah, Pilih menu makanan yang tersedia !", 1,
                                     restoran.getMenuMinuman().size());
                             int jumlahPesanMinum = Fitur.validasiInteger(
@@ -102,24 +130,32 @@ public class Customer {
                                 continue;
                             } else {
                                 System.out.printf(
-                                        "Masukkan jarak antara lokasi anda dengan alamat dari restoran %s yakni dari : %s\n",
+                                        "\nMasukkan jarak antara lokasi anda dengan \nalamat dari restoran %s yakni dari : %s\n",
                                         restoran.getNama(), restoran.getAlamat());
                                 double jarakAntar = Fitur.validasiDouble();
                                 pesanan.setJarakAntar(jarakAntar);
-                                System.out.print("Masukkan nama anda : ");
+                                System.out.print("\nMasukkan nama anda : ");
                                 String namaCustomer = input.nextLine();
                                 pesanan.setNamaCustomer(namaCustomer);
-                                daftarPesanan.add(pesanan);
-                                System.out.println("\n*** Pesanan berhasil dibuat ! ***");
-                                Fitur.getChar("Tekan enter untuk kembali ke menu customer ! ");
-                                break;
+                                pesanan.setNamaCustomer(namaCustomer);
+                                System.out.print("\nApakah anda yakin untuk membuat pesanan diatas ? ");
+                                char yakin = Fitur.validasiChar();
+                                if (yakin == 'y') {
+                                    daftarPesanan.add(pesanan);
+                                    System.out.println("\n\n*** Pesanan berhasil dibuat ! ***");
+                                    Fitur.getChar("\nTekan enter untuk kembali ke menu customer ! ");
+                                    break;
+                                } else {
+                                    System.out.println("\n\n*** Pesanan dibatalkan ! ***");
+                                    Fitur.getChar("\nTekan enter untuk kembali ke menu customer ! ");
+                                    break;
+                                }
                             }
                         }
                     }
                 }
 
             } else if (pilih == 2) {
-                Fitur.clearScreen();
                 if (daftarPesanan.isEmpty()) {
                     Fitur.clearScreen();
                     System.out.println("Belum ada data pesanan customer, Mohon dibuat terlebih dahulu !\n");
@@ -131,7 +167,7 @@ public class Customer {
                             + "===============================================");
                     for (int i = 0; i < daftarPesanan.size(); i++) {
                         Pesanan pesanan = daftarPesanan.get(i);
-                        System.out.printf("   %d. Pesanan dengan nama customer : %s\n", i + 1,
+                        System.out.printf("   %d. Pesanan dengan nama : %s\n", i + 1,
                                 pesanan.getNamaCustomer());
                     }
                     int pilihPesanan = Fitur.validasiInteger(
@@ -142,7 +178,7 @@ public class Customer {
                     System.out.printf("===============================================\n");
                     System.out.printf("||           Detail Pesanan Customer         ||\n");
                     System.out.printf("===============================================\n");
-                    System.out.printf("   Nama Customer   : %s \n", pesanan.getNamaCustomer());
+                    System.out.printf("   Nama Customer  : %s \n", pesanan.getNamaCustomer());
                     System.out.printf("===============================================\n");
                     System.out.printf("  Nama Restoran   : %s \n", pesanan.getNamaResto());
                     System.out.printf("  Alamat Restoran : %s \n", pesanan.getAlamatResto());

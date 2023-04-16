@@ -2,6 +2,28 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 import java.security.SecureRandom;
 
+/*
+ * Class Fitur:
+ *      - Class ini merupakan tempat untuk menyimpan method-method yang diperlukan pada program restoran online.
+ *        
+ *      - Method clear screen untuk membersihkan layar console pada saat menjalankan program.
+ * 
+ *      - Method get char yang berfungsi untuk menghentikan program sebentar dan melanjutkannya lagi bila user
+ *        menekan tombol enter. 
+ * 
+ *      - Method validasi integer berfungsi untuk menerima input dari user dan menvalidasinya agar
+ *        hanya bertipe integer dan berada pada range yang diberikan pada parameter method. 
+ * 
+ *      - Method validasi char berfungsi untuk menerima input dari user dan menvalidasinya agar inputan dari user hanya bernilai y/n. 
+ * 
+ *      - Method id generator merupakan method yang berfungsi untuk mengenerate id dengan panjang tertentu (didapat dari parameter)
+ *        yang nantinya akan digunakan pada setiap data restoran dan menu.
+ * 
+ *      - Method validasi double berfungsi untuk menerima input dari user dan menvalidasikannya agar bertipe double
+ *        dan masukkannya lebih dari 0 dan nantinya akan digunakan user untuk memasukkan jarak antar pada saat membuat pesanan     
+ *        
+ */
+
 public class Fitur {
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");

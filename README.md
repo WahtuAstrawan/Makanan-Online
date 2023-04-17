@@ -1,5 +1,5 @@
-# Makanan-Online
-Program java sederhana berbasis command line tentang makanan online
+# Restoran Online
+Program java membeli makanan online berbasis command line 
 
 Nama : I Gusti Ngurah Putu Astrawan
 
@@ -77,3 +77,6 @@ NIM  : 2205551071
 ![alt text](https://github.com/WahtuAstrawan/Makanan-Online/blob/master/Dokumentasi%20Alur/Screenshot%20(567).png?raw=true)
 
 Catatan : Pada program ini semua input yang perlu diisi oleh user telah dilengkapi dengan validasi. yang berarti bila user melakukan input yang salah, maka user akan diberi tahu oleh program dan dimintai inputan ulang. Pada program ini juga telah berisi kondisi dimana bila user tidak menjalankan sesuai dengan alur. contohnya misalkan user ingin melihat dan menghapus data restoran tetapi data restorannya belum ditambahkan maka program akan meminta user untuk menambahkan data terlebih dahulu. begitu juga dengan kondisi-kondisi yang lain yang mungkin terjadi. Untuk fungsi dari setiap class dan method pada program telah diisi penjelasan pada source code berupa comment
+
+# UML (Unified Modeling Language)
+![UML](https://github.com/WahtuAstrawan/Makanan-Online/blob/master/UML%20PBO.drawio.png?raw=true)

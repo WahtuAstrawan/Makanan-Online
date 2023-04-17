@@ -59,8 +59,8 @@ NIM  : 2205551071
 9. Berikutnya admin dapat kembali ke login (logout) dan user lain (customer) dapat melakukan login ke dalam program untuk dapat membuat dan melihat pesanan.
 
 ![alt text](https://github.com/WahtuAstrawan/Makanan-Online/blob/master/Dokumentasi%20Alur/Screenshot%20(546).png?raw=true)
-![alt text](https://github.com/WahtuAstrawan/Makanan-Online/blob/master/Dokumentasi%20Alur/Screenshot%20(548).png?raw=true)
 ![alt text](https://github.com/WahtuAstrawan/Makanan-Online/blob/master/Dokumentasi%20Alur/Screenshot%20(568).png?raw=true)
+![alt text](https://github.com/WahtuAstrawan/Makanan-Online/blob/master/Dokumentasi%20Alur/Screenshot%20(548).png?raw=true)
 
 10. Berikutnya pada menu customer, pelanggan dapat memilih fitur yang tersedia yakni buat dan tambah pesanan. disini saya akan membuat pesanan terlebih dahulu agar pesanannya dapat dilihat nanti. disini user akan dimintai input data yang diperlukan untuk membuat sebuah pesanan.
 

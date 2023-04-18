@@ -7,7 +7,7 @@ NIM  : 2205551071
 
 # Alur Program
 
-1. Pada saat program dijalankan, ini merupakan tampilan awalnya yakni meminta user untuk memilih 1 untuk login dan 2 untuk keluar (exit program)
+1. Untuk menjalankan program, diharap untuk menggunakan terminal agar program ini dapat berjalan dengan baik. Pada saat program dijalankan, ini merupakan tampilan awalnya yakni meminta user untuk memilih 1 untuk login dan 2 untuk keluar (exit program)
    
 ![Alur Program](https://github.com/WahtuAstrawan/Makanan-Online/blob/master/Dokumentasi%20Alur/Screenshot%20(568).png?raw=true)
 
